@@ -87,7 +87,7 @@ function generateQuiz() {
     });
 }
 
-// Function to evaluate answers
+// Function to evaluate answers and generate the graph
 function evaluateAnswers() {
     let results = {
         "Basic Syntax": 0,
@@ -109,10 +109,37 @@ function evaluateAnswers() {
         }
     });
 
+    displayGraph(results);
     displayResults(results);
 }
 
-// Function to display the results
+// Function to display results as a graph using Chart.js
+function displayGraph(results) {
+    const ctx = document.getElementById('resultsChart').getContext('2d');
+    
+    const chart = new Chart(ctx, {
+        type: 'bar', // You can change this to 'pie', 'line', 'radar', etc.
+        data: {
+            labels: Object.keys(results),  // Topics as x-axis labels
+            datasets: [{
+                label: 'Skill Proficiency',
+                data: Object.values(results),  // Scores as y-axis data
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+// Function to display the textual results
 function displayResults(results) {
     const resultList = document.getElementById('resultList');
     resultList.innerHTML = '';  // Clear previous results
