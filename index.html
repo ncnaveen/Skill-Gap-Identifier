@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Skill Gap Identifier</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Python Skill Gap Identifier</h1>
+    <h1>Welcome to Bhrighu - Python Skill Gap Identifier</h1>
     
     <form id="quizForm">
         <!-- Questions will be dynamically injected here by JavaScript -->
@@ -17,6 +20,10 @@
 
     <div id="result" class="hidden">
         <h2>Your Skill Gap Report:</h2>
+        
+        <!-- This is where the graph will be displayed -->
+        <canvas id="resultsChart" width="400" height="200"></canvas>
+        
         <ul id="resultList">
             <!-- Results will be dynamically injected here -->
         </ul>
