@@ -6,20 +6,22 @@ const questions = [
         topic: "Basic Syntax"
     },
     {
-        question: "What data type is the result of 10 / 3?",
+        question: "What data type is the result of 10 / 3 in Python?",
         options: ["int", "float", "string"],
         correctAnswer: "float",
         topic: "Data Types"
     },
     {
-        question: "What does the following code do? \nif x > 10: \n    print('Greater')",
-        options: [
-            "Checks if x is greater than 10 and prints 'Greater' if True", 
-            "Assigns value 'Greater' to variable x", 
-            "Checks if x is equal to 10 and prints 'Greater' if False"
-        ],
-        correctAnswer: "Checks if x is greater than 10 and prints 'Greater' if True",
-        topic: "Control Flow"
+        question: "Which of the following is the correct way to create a list in Python?",
+        options: ["[]", "{}", "()"],
+        correctAnswer: "[]",
+        topic: "Data Structures"
+    },
+    {
+        question: "What is the result of the expression '2' + '3' in Python?",
+        options: ["5", "'23'", "Error"],
+        correctAnswer: "'23'",
+        topic: "String Manipulation"
     },
     {
         question: "How do you define a function in Python?",
@@ -28,20 +30,38 @@ const questions = [
         topic: "Functions"
     },
     {
-        question: "Which of the following is a Python library for data manipulation?",
-        options: ["Numpy", "TensorFlow", "requests"],
-        correctAnswer: "Numpy",
+        question: "Which of the following is a Python library used for data manipulation and analysis?",
+        options: ["NumPy", "TensorFlow", "requests"],
+        correctAnswer: "NumPy",
         topic: "Libraries"
     },
     {
-        question: "How do you handle exceptions in Python?",
-        options: ["try-except", "catch-throw", "error-catch"],
-        correctAnswer: "try-except",
+        question: "Which of the following statements will raise an exception in Python?",
+        options: ["x = 10 / 0", "x = 10", "x = 'Hello'"],
+        correctAnswer: "x = 10 / 0",
         topic: "Error Handling"
+    },
+    {
+        question: "What is the output of the following code?\n\nprint([1, 2, 3] * 2)",
+        options: ["[1, 2, 3, 1, 2, 3]", "[1, 2, 3, 2, 3, 1]", "[1, 2, 3]"],
+        correctAnswer: "[1, 2, 3, 1, 2, 3]",
+        topic: "Lists"
+    },
+    {
+        question: "Which of the following is the correct way to write a while loop in Python?",
+        options: ["while x < 10: {x += 1}", "while x < 10: x += 1", "while(x < 10): {x++}"],
+        correctAnswer: "while x < 10: x += 1",
+        topic: "Control Flow"
+    },
+    {
+        question: "What is the purpose of the 'self' parameter in a Python class method?",
+        options: ["It refers to the current object", "It is used to define global variables", "It is a Python keyword"],
+        correctAnswer: "It refers to the current object",
+        topic: "Object-Oriented Programming"
     }
 ];
 
-// Function to generate the quiz form
+// Function to generate the quiz
 function generateQuiz() {
     const form = document.getElementById('quizForm');
     questions.forEach((question, index) => {
@@ -72,10 +92,14 @@ function evaluateAnswers() {
     let results = {
         "Basic Syntax": 0,
         "Data Types": 0,
-        "Control Flow": 0,
+        "Data Structures": 0,
+        "String Manipulation": 0,
         "Functions": 0,
         "Libraries": 0,
-        "Error Handling": 0
+        "Error Handling": 0,
+        "Lists": 0,
+        "Control Flow": 0,
+        "Object-Oriented Programming": 0
     };
 
     questions.forEach((question, index) => {
